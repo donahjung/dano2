@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int get_random()
+{
+ static int inited = 0;
+ if(inited == 0) {
+  srand((unsigned int)time(0));
+  inited = 1;
+ }
+ return rand();
+}
+int main()
+{
+ int i;
+ for ( i=0; i<10; i++) {
+  printf("%d ", get_random());
+ }
+ printf("\n");
+ return 0;
+}
